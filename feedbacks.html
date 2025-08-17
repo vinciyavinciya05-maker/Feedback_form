@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  body {
+    background-color: #121212;
+    color: #fff;
+  }
+  .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+  }
+  .card-title {
+    color: #f8f9fa;
+  }
+  .card-text {
+    color: #e0e0e0; /* 👈 fixes the "invisible" message issue */
+  }
+  .badge {
+    font-size: 0.9rem;
+  }
+</style>
+
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>🗂️ All Feedback</h2>
+    {% for fb in feedbacks %}
+    <div class="card my-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ fb[1] }} ({{ fb[3] }}, {{ fb[2] }})</h5>
+        <p class="card-text">{{ fb[4] }}</p>
+        <span class="badge bg-warning text-dark">Rating: {{ fb[5] }} ⭐</span>
+      </div>
+    </div>
+    {% endfor %}
+    <a href="/" class="btn btn-secondary mt-3">Back to Form</a>
+    <a href="/download" class="btn btn-success mt-3 ms-2">⬇️ Download CSV</a>
+  </div>
+</body>
+</html>
